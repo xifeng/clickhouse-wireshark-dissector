@@ -36,23 +36,23 @@ Below is the current implementation and verification status of the ClickHouse Na
 
 ### Client Packets
 - [x] **Hello (0)**: Handshake, auth, and versioning.
-- [ ] **Query (1)**: Pending implementation.
-- [ ] **Data (2)**: Pending implementation.
-- [ ] **Cancel (3)**: Pending implementation.
-- [ ] **Ping (4)**: Pending implementation.
-- [ ] **TableStatus (5)**: Pending implementation.
+- [x] **Query (1)**: Query ID, SQL body, stage, compression, settings, and parameters.
+- [x] **Data (2)**: Table name and data block with columns.
+- [x] **Cancel (3)**: Empty packet for query cancellation.
+- [x] **Ping (4)**: Empty packet for connection health check.
+- [x] **TableStatus (5)**: Table name request.
 
 ### Server Packets
 - [x] **Hello (0)**: Server version and revision info (with dynamic revision checks).
-- [ ] **Data (1)**: Pending implementation.
-- [ ] **Exception (2)**: Pending implementation.
-- [ ] **Progress (3)**: Pending implementation.
-- [ ] **Pong (4)**: Pending implementation.
-- [ ] **EndOfStream (5)**: Pending implementation.
-- [ ] **ProfileInfo (6)**: Pending implementation.
-- [ ] **Totals (7)**: Pending implementation.
-- [ ] **Extremes (8)**: Pending implementation.
-- [ ] **Log (10)**: Pending implementation.
+- [x] **Data (1)**: Data blocks with BlockInfo, columns, and rows.
+- [x] **Exception (2)**: Error code, name, message, stack trace, and nested exceptions.
+- [x] **Progress (3)**: Rows, bytes, totals, written rows/bytes, and elapsed time.
+- [x] **Pong (4)**: Response to client Ping.
+- [x] **EndOfStream (5)**: Marks end of data stream.
+- [x] **ProfileInfo (6)**: Query execution statistics.
+- [x] **Totals (7)**: Aggregated totals block.
+- [x] **Extremes (8)**: Min and max data blocks.
+- [x] **Log (10)**: Log messages with timestamp, timezone, level, source, and message.
 
 ## References
 
